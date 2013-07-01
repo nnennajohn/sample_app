@@ -1,11 +1,39 @@
 SampleApp::Application.routes.draw do
-  get "static_pages/home"
 
-  get "static_pages/help"
+  # get "users/new"
+  resources :users
 
-  get "static_pages/about"
+  # get "static_pages/home"
+  root to: 'static_pages#home'
 
-  get "static_pages/contact"
+  # get "static_pages/help"
+  match '/help', to: 'static_pages#help'
+
+  # get "static_pages/about"
+  match '/about', to: 'static_pages#about'
+  # automatically creates:
+  # about_path => '/about'
+  # about_url  => 'http://localhost:3000/about'
+
+  # get "static_pages/contact"
+  match '/contact', to: 'static_pages#contact'
+
+  match '/signup', to: 'users#new'
+
+
+  # get "users/new"
+
+  # root :to => 'static_pages#home'
+
+  # match '/signup' => 'users#new'
+
+
+  # match '/help' => 'static_pages#help'
+
+  # match '/about' => 'static_pages#about'
+  
+  # match '/contact' => 'static_pages#contact'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
